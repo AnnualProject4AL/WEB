@@ -7,8 +7,27 @@
   - Maven : https://maven.apache.org/
   
 ### Command :
-Build : `mvn clean install`
-Generate Jar : `mvn clean package`
-Launch test : `mvn clean test`
-Launch the server and projet : `mvn spring-boot:run`
+Build : 
+
+```
+$ mvn clean install
+```
+
+Generate Jar : 
+
+```
+$ mvn clean package
+```
+
+Launch test : 
+
+```
+$ mvn clean test
+```
+
+Launch the server and projet : 
+
+```
+$ mvn spring-boot:run
+```
  
