@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>Login Page</title>
+        
+		<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}"></link>
+		<link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"></link>
+        <script th:src="@{/js/jquery-3.2.1.js}" defer="defer"></script>
+		<script th:src="@{/bootstrap/js/bootstrap.min.js}" defer="defer"></script>
+		
+		<script type="text/javascript">
+        //<![CDATA[
+            function defer(method) {
+                if (window.jQuery) {
+                    method();
+                }
+                else {
+                    setTimeout(function() { defer(method) }, 100);
+                }
+            }
+        //]]>
+        </script>
+    </head>
+    <body class="login-page">
+		<div class="container">
+		    <div class="row">
+		        <div class="col-md-12">
+		            <div class="pr-wrap">
+		                <div class="other-box">
+		                    <label>
+		                        Enter the email you signed up with</label>
+		                    <input type="email" placeholder="Email" />
+		                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+		                </div>
+		            </div>
+		            <div class="new">
+		                <p class="form-title">
+		                    Sign In</p>
+		                <form class="login" th:action="@{/login.html}" method="post">
+			                <input type="text" id="username" name="username" placeholder="Username" />
+			                <input type="password" id="password" name="password" placeholder="Password" />
+			                <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+			                <div>
+			                    <div class="row">
+			                        <div class="col-md-6 other-content">
+										<a href="#">Create Account</a>
+			                        </div>
+			                        <div class="col-md-6 other-content">
+			                            <a href="#" class="forgot-pass">Forgot Password</a>
+			                        </div>
+			                    </div>
+			                </div>
+		                </form>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+    </body>
+    <script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    	defer(function() {
+	    	$(document).ready(function () {
+			    $('.forgot-pass').click(function(event) {
+			      $(".pr-wrap").toggleClass("show-pass-reset");
+			    }); 
+			    
+			    $('.pass-reset-submit').click(function(event) {
+			      $(".pr-wrap").removeClass("show-pass-reset");
+			    }); 
+			});
+    	});
+    /*]]>*/
+    </script>
+</html>
